@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'ImageSwitcher'
+
+    publishedGroupId = 'pt.nmusic'
+    libraryName = 'ImageSwitcher'
+    artifact = 'ImageSwitcher'
+
+    libraryDescription = 'An Android library allowing for easy, configuration-less, touch view switching.'
+
+    siteUrl = 'https://github.com/Mithrandir21/ImageSwitcher'
+    gitUrl = 'https://github.com/Mithrandir21/ImageSwitcher.git'
+
+    libraryVersion = '0.3'
+
+    developerId = 'mithrandir21'
+    developerName = 'Bahram Malaekeh'
+    developerEmail = 'bahram.malaekeh@gmail.com'
+
+    licenseName = 'GNU General Public License, version 3'
+    licenseUrl = 'http://opensource.org/licenses/gpl-3.0.html'
+    allLicenses = ["GPL-3.0"]
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 3
+        versionName "0.3"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.0.1'
+
+    // Fresco (Drawee)
+    compile 'com.facebook.fresco:fresco:0.8.0'
+}
